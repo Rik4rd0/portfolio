@@ -1,0 +1,114 @@
+.hero {
+    background-color: black; // Fondo negro
+    color: #ffffff; // Texto blanco para contraste
+    padding: 2rem;
+    text-align: center; // Centra el texto
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    animation: backgroundAnimation 10s infinite alternate; // Animación del fondo
+    gap: 20px; /* Espaciado entre las columnas */
+    position: relative; /* Necesario para que los elementos hijos con posición absoluta se ubiquen dentro de este contenedor */
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    overflow: hidden; /* Evita que el modelo se salga del contenedor */
+}
+
+.hero-content {
+    display: flex; // Cambia el diseño a flexbox
+    flex-direction: row; // Asegura que los elementos estén en fila
+    justify-content: space-between; // Espacia los elementos entre sí
+    align-items: center; // Centra los elementos verticalmente
+    width: 100%; // Asegura que ocupe todo el ancho del contenedor
+    height: 100%; // Asegura que ocupe toda la altura del contenedor
+    padding: 20px;
+    text-align: left; // Alinea el texto a la izquierda
+    h1.typewriter {
+        margin-bottom: 7px; // Controla el espaciado debajo del h1
+    }
+
+    h3.type {
+        margin-bottom: 7px; // Controla el espaciado debajo del h3
+    }
+
+    .paragraph {
+        margin-top: -10px; // Controla el espaciado encima del párrafo
+    }
+    flex: 1; /* Ocupa el espacio disponible */
+    position: relative; /* Asegura que el texto esté encima del modelo */
+    z-index: 2; /* Coloca el texto por encima del modelo */
+    color: #ffffff; /* Asegúrate de que el texto sea visible */
+}
+
+.typewriter {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.5rem solid #ffffff; // Reduce the border width for better alignment
+    animation: typing 3s steps(30, end) forwards, blink .5s step-end infinite; // Adjusted steps for smoother typing
+    font-size: 3.5rem; 
+    font-family: "Courier New", Courier, monospace; // Fuente de máquina de escribir
+    color: #007bff; // Cambia el color del texto a azul
+    margin-left: 4rem; // Elimina cualquier margen izquierdo
+    text-align: left; // Alinea el texto completamente a la izquierda
+    align-self: flex-start; // Asegura que el texto esté en la orilla izquierda dentro del contenedor flex
+    max-width: 43%; // Adjusts the width of the text to fit within the container
+}
+.hero-text{
+    flex: 1; // Ocupa el espacio disponible a la izquierda
+    text-align: left; // Alinea el texto a la izquierda
+    padding: 20px; // Añade un poco de espacio alrededor del texto
+}
+
+.type{
+    display: block; // Asegura que el texto ocupe todo el ancho disponible
+    overflow: hidden; // Oculta el desbordamiento del texto
+    white-space: nowrap; // Evita que el texto se divida en varias líneas
+    font-size: 2.5rem; // Tamaño de fuente grande para destacar el texto
+    font-family: "Courier New", Courier, monospace; // Fuente de máquina de escribir
+    color: #f17c08; // Cambia el color del texto a azul
+    margin-left: 4rem; // Elimina cualquier margen izquierdo
+    text-align: left; // Alinea el texto completamente a la izquierda
+    align-self: flex-start; // Asegura que el texto esté en la orilla izquierda dentro del contenedor flex
+
+}
+
+.span {
+    text-align: left; // Alinea el texto a la izquierda
+    margin-left: 4rem; // Alinea con el margen izquierdo del h1 y h3
+    font-size: 1.5rem; // Tamaño de fuente consistente
+    line-height: 1.6; // Espaciado entre líneas
+    color: #cccccc; // Color del texto
+    font-style: italic; // Estilo cursivo
+    display: block; // Asegura que el span se comporte como un bloque
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; 
+    }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #ffffff; }
+}
+
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
+    100% { background: linear-gradient(135deg, #0d0d0d, #1a1a1a); }
+}
+
+.hero-model {
+    position: absolute; /* Asegura que el modelo esté posicionado absolutamente dentro del contenedor padre */
+    bottom: -100px; /* Baja el modelo un poco más hacia abajo */
+    left: 70%; /* Mueve el modelo un poco hacia la derecha */
+    transform: translateX(-50%); /* Ajusta la posición para centrarlo correctamente */
+    width: 100%; /* Asegura que el modelo ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción del modelo */
+    z-index: 1; /* Coloca el modelo detrás del texto */
+    align-self: flex-end; /* Asegura que el modelo esté alineado al final del contenedor flex */
+    max-width: 100%; /* Asegura que el modelo no exceda el ancho del contenedor */
+}

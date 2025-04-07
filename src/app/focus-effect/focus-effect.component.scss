@@ -1,0 +1,8 @@
+:host {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: none; /* Elimina cualquier transformación que pueda causar desfase */
+    opacity: 1; /* Asegúrate de que el efecto sea completamente visible */
+}

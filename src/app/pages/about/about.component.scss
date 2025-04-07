@@ -1,0 +1,42 @@
+.about-section {
+    display: flex; // Activa el diseño flexbox
+    flex-direction: row; // Coloca los elementos en fila
+    justify-content: space-between; // Asegura que el texto y la imagen estén separados
+    align-items: center; // Centra verticalmente los elementos
+    background-color: black; // Fondo negro
+    color: white; // Texto blanco
+    padding: 20px; // Espaciado alrededor del contenido
+    width: 100%; // Ocupa todo el ancho de la página
+    box-sizing: border-box; // Asegura que el padding no afecte el ancho total
+}
+
+.about-content {
+    flex: 1; // Ocupa el espacio disponible a la izquierda
+    text-align: left; // Alinea el texto a la izquierda
+    padding-right: 20px; // Espaciado entre el texto y la imagen
+    font-size: 2rem; // Aumenta el tamaño de la fuente
+    line-height: 2; // Mejora la legibilidad con mayor espaciado entre líneas
+    font-weight: 400; // Opcional: ajusta el grosor del texto
+}
+
+.about-image {
+    flex: 1; // Ocupa el espacio disponible a la derecha
+    text-align: center; // Centra la imagen horizontalmente
+}
+
+
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; // Cambia a diseño en columna
+        text-align: center; // Centra el texto en pantallas pequeñas
+    }
+
+    .about-content {
+        padding-right: 0; // Elimina el espaciado lateral
+    }
+
+    .about-image {
+        margin-top: 20px; // Agrega espacio entre el texto y la imagen
+    }
+}
