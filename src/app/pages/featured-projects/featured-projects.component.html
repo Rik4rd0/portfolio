@@ -1,0 +1,17 @@
+<section class="projects-section">
+    <h2 class="section-title">Proyectos Destacados</h2>
+  
+    <div class="project-card" *ngFor="let project of projects">
+      <h3 class="project-title">{{ project.title }}</h3>
+      <p class="project-description">{{ project.description }}</p>
+  
+      <ul class="tech-stack">
+        <li *ngFor="let tech of project.technologies">{{ tech }}</li>
+      </ul>
+  
+      <a *ngIf="project.link" [href]="project.link" target="_blank" class="project-link">
+        Ver en GitHub
+      </a>
+    </div>
+  </section>
+  

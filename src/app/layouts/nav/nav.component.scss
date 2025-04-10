@@ -1,17 +1,20 @@
 nav {
     display: flex;
-    justify-content: center; // Centra horizontalmente el contenido
-    align-items: center; // Centra verticalmente dentro del nav
-    position: fixed; // Fija el nav en la parte superior
-    top: 0; // Posición superior
-    left: 0; // Posición izquierda
-    width: 100%; // Ocupa todo el ancho de la página
-    background-color: #000000; // Fondo semitransparente
-    font-size: 2rem; // Aumenta el tamaño de la fuente
-    color: rgba(255, 254, 254, 0.979); // Color del texto
-    text-transform: uppercase; // Convierte el texto a mayúsculas
+    justify-content: center; // Alinea el contenido hacia el centro
+    align-items: center; 
+    position: absolute; // Posiciona el nav relativo al contenedor
+    top: 0; 
+    left: auto; // Elimina la alineación desde la izquierda
+    right: 0; // Alinea el nav al lado derecho
+    width: 30%; 
+    height: 60px; // Altura del nav
+    background-color: #1A1919; // Fondo negro
+    font-size: 0.9rem; // Tamaño de fuente más pequeño
+    color: #ffffff; // Color del texto blanco
     z-index: 1000; // Asegura que el nav esté por encima de otros elementos
-    padding: 1rem 0; // Espaciado interno
+    padding: 0 2rem; // Ajusta el espaciado interno
+    border-bottom-left-radius: 15px; // Redondea la esquina inferior izquierda
+
 }
 
 ul {
@@ -19,15 +22,22 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 2rem; // Espaciado entre los elementos de la lista
+    gap: 2.2rem; // Espaciado entre los elementos de la lista
 }
 
 a {
     text-decoration: none; // Elimina el subrayado de los enlaces
     color: inherit; // Hereda el color del texto del contenedor
     transition: color 0.3s ease; // Agrega una transición suave al color
+    font-size: 1.2rem; // Aumenta el tamaño de fuente de los enlaces
+    cursor: pointer; // Asegura que el cursor sea de tipo puntero al pasar sobre el enlace
 
     &:hover {
-        color: rgba(38, 41, 201, 0.986); // Cambia el color al pasar el mouse
+        color: #007bff; // Cambia el color al pasar el mouse
     }
+}
+
+a.active {
+    font-weight: bold; // Resalta el enlace activo
+    color: #007bff; // Cambia el color del enlace activo
 }

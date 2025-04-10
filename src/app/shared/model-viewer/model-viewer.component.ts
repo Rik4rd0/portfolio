@@ -27,7 +27,6 @@ export class ModelViewerComponent implements AfterViewInit {
   }
 
   private init3DScene(): void {
-    
     const container = this.el.nativeElement;
 
     // Crear la escena
@@ -35,15 +34,22 @@ export class ModelViewerComponent implements AfterViewInit {
 
     // Crear la cámara
     const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-    camera.position.set(0, 2, 5); // Elevar la cámara en el eje Y
-    camera.lookAt(0, 0, 0); // Hacer que la cámara mire hacia el centro de la escena
+    camera.position.set(0, 2, 6); // Alejar la cámara para que todo el objeto sea visible
+    camera.lookAt(0, 1, 0); // Ajustar la dirección de la cámara hacia el centro del objeto
 
     // Crear el renderizador
-    const renderer = new THREE.WebGLRenderer({ alpha: true }); // Habilitar transparencia
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(container.offsetWidth, container.offsetHeight);
-    renderer.setClearColor(0x000000, 0); // Fondo transparente (color negro con 0 de opacidad)
+    renderer.setClearColor(0x000000, 0); // Fondo transparente
     container.appendChild(renderer.domElement);
-    
+
+    // Ajustar el tamaño del canvas al redimensionar la ventana
+    window.addEventListener('resize', () => {
+      camera.aspect = container.offsetWidth / container.offsetHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.offsetWidth, container.offsetHeight);
+    });
+
     // Crear un cubo más "teclado 1"
     const geometry = new THREE.BoxGeometry(3.2, 0.1, 1.50); // Ancho = 5, Alto = Profundidad = 3
     const material = new THREE.MeshBasicMaterial({ color: 0x0000000 }); // Marrón
@@ -310,59 +316,26 @@ export class ModelViewerComponent implements AfterViewInit {
     controls.enableDamping = true; // Suavizar el movimiento
     controls.dampingFactor = 0.05;
 
-    // Limitar el zoom
-    controls.minDistance = 2; // Distancia mínima de la cámara al objeto
-    controls.maxDistance = 10; // Distancia máxima de la cámara al objeto
+    // Deshabilitar zoom
+    controls.enableZoom = false; // Deshabilitar zoom
 
-    // Configurar rotación automática
-    controls.autoRotate = true; // Activar rotación automática por defecto
-    controls.autoRotateSpeed = 2; // Velocidad de rotación automática
+    // Deshabilitar rotación automática
+    controls.autoRotate = false; // No rotar automáticamente
     controls.enablePan = false; // Deshabilitar paneo
     controls.enableRotate = true; // Permitir rotación manual
-    controls.enableZoom = true; // Permitir zoom
-
-    // Detectar cuando el mouse entra y sale del contenedor
-    container.addEventListener('mouseenter', () => {
-      if (!isUserInteracting) {
-        controls.autoRotate = true; // Activar rotación automática al pasar el mouse
-      }
-    });
-
-    container.addEventListener('mouseleave', () => {
-      if (!isUserInteracting) {
-        controls.autoRotate = false; // Desactivar rotación automática al salir el mouse
-      }
-    });
 
     // Detectar interacción del usuario
     container.addEventListener('mousedown', () => {
-      isUserInteracting = true; // El usuario está interactuando
-      controls.autoRotate = false; // Desactivar rotación automática mientras interactúa
+      controls.enableRotate = true; // Permitir rotación al hacer clic
     });
 
     container.addEventListener('mouseup', () => {
-      isUserInteracting = false; // El usuario dejó de interactuar
-      controls.autoRotate = true; // Reactivar rotación automática
+      controls.enableRotate = true; // Deshabilitar rotación al soltar el clic
     });
 
-    // Animación personalizada para rotación automática
+    // Animación personalizada
     const animate = () => {
       requestAnimationFrame(animate);
-
-      // Controlar la rotación automática
-      if (controls.autoRotate && !isUserInteracting) {
-        autoRotateAngle += rotateDirection * 0.01; // Incrementar o decrementar el ángulo
-
-        // Cambiar la dirección si se alcanza el ángulo máximo
-        if (autoRotateAngle >= maxRotationAngle || autoRotateAngle <= -maxRotationAngle) {
-          rotateDirection *= -1; // Invertir la dirección
-        }
-
-        // Aplicar la rotación al control
-        controls.object.position.x = Math.sin(autoRotateAngle) * 5; // Ajustar la posición en X
-        controls.object.position.z = Math.cos(autoRotateAngle) * 5; // Ajustar la posición en Z
-        controls.object.lookAt(0, 0, 0); // Mantener la cámara mirando al centro
-      }
 
       // Actualizar controles
       controls.update();

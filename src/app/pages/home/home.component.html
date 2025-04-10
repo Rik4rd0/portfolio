@@ -1,61 +1,27 @@
 <app-nav/>
-
 <main>
-    <app-hero/>
-
-  <!-- Sección "Sobre mí" con timeline -->
+  <app-hero/>
   <section id="about" class="section-dark">
     <div class="container">
       <app-about/>
     </div>
   </section>
 
-  <!-- Sección de habilidades técnicas interactiva -->
   <section id="skills" class="section-light">
     <div class="container">
-      <h2 class="section-title">My <span class="highlight">Skills</span></h2>
-      
-      <div class="skills-details">
-        
-        <!--
-        <app-skill-chart [skills]="techSkills"></app-skill-chart>
-        <app-languages [languages]="languages"></app-languages>
-        -->
-      </div>
+      <app-skills/>
     </div>
   </section>
 
-  <!-- Sección de proyectos destacados (con filtros) -->
   <section id="projects" class="section-dark">
     <div class="container">
-      <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
-       <!--
-      <app-project-filter (filterChange)="filterProjects($event)"></app-project-filter>
-      <app-project-grid [projects]="filteredProjects"></app-project-grid>
-      -->
+      <app-featured-projects/>
     </div>
   </section>
 
-  <!-- Sección de testimonios (opcional) -->
-  <section id="testimonials" class="section-light">
-    <div class="container">
-      <h2 class="section-title">Client <span class="highlight">Feedback</span></h2>
-    </div>
-  </section>
-
-  <!-- Sección de contacto interactiva -->
   <section id="contact" class="section-accent">
     <div class="container">
-      <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-      <div class="contact-grid">
-        <!-- 
-        <app-contact-form></app-contact-form>
-        <app-social-links></app-social-links>
-        -->
-      </div>
+      <app-contact-form/>
     </div>
   </section>
 </main>
- <!--
-<app-footer></app-footer>
--->

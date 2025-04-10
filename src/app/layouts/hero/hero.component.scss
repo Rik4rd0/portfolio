@@ -1,5 +1,4 @@
 .hero {
-    background-color: black; // Fondo negro
     color: #ffffff; // Texto blanco para contraste
     padding: 2rem;
     text-align: center; // Centra el texto
@@ -9,11 +8,11 @@
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    animation: backgroundAnimation 10s infinite alternate; // Animación del fondo
     gap: 20px; /* Espaciado entre las columnas */
     position: relative; /* Necesario para que los elementos hijos con posición absoluta se ubiquen dentro de este contenedor */
     height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
     overflow: hidden; /* Evita que el modelo se salga del contenedor */
+    background-color: #0E0E0E; /* Establece el color de fondo */
 }
 
 .hero-content {
@@ -98,7 +97,6 @@
 
 @keyframes backgroundAnimation {
     0% { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
-    100% { background: linear-gradient(135deg, #0d0d0d, #1a1a1a); }
 }
 
 .hero-model {

@@ -1,0 +1,11 @@
+<section class="contact-section" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">¿Tienes una idea, una oportunidad laboral o solo quieres saludar? ¡Estoy disponible!</p>
+  
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <input type="text" formControlName="name" placeholder="Your Name" />
+      <input type="email" formControlName="email" placeholder="Your Email" />
+      <textarea formControlName="message" rows="5" placeholder="Your Message"></textarea>
+      <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    </form>
+  </section><p>contact-form works!</p>
