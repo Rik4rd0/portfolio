@@ -1,13 +1,12 @@
 <section class="skills-section">
-    <h2 class="title">My Skills</h2>
-  
-    <div class="skills-category" *ngFor="let category of skills | keyvalue">
+  <h2 class="title">My Skills</h2>
+
+  <div class="skills-grid">
+    <div class="card" *ngFor="let category of skills | keyvalue">
       <h3 class="category-title">{{ category.key | titlecase }}</h3>
-      <ul class="skill-list">
-        <li *ngFor="let skill of category.value" class="skill-item">
-          {{ skill }}
-        </li>
-      </ul>
+      <div class="badges-container">
+        <img *ngFor="let item of category.value" [src]="item.badge" [alt]="item.name" [title]="item.name" class="badge">
+      </div>
     </div>
-  </section>
-  
+  </div>
+</section>

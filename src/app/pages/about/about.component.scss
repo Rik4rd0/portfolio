@@ -3,11 +3,15 @@
     flex-direction: row; // Coloca los elementos en fila
     justify-content: space-between; // Asegura que el texto y la imagen estén separados
     align-items: center; // Centra verticalmente los elementos
-    background-color: black; // Fondo negro
+    background-color: #1A1919; // Fondo negro
     color: white; // Texto blanco
     padding: 20px; // Espaciado alrededor del contenido
-    width: 100%; // Ocupa todo el ancho de la página
+    width: 92%; // Ocupa el 95% del ancho de la página
     box-sizing: border-box; // Asegura que el padding no afecte el ancho total
+    margin: 0 auto; // Centra horizontalmente la sección en la página
+    border-radius: 30px; // Opcional: esquinas redondeadas
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); // Sombra debajo
+
 }
 
 .about-content {
@@ -39,4 +43,26 @@
     .about-image {
         margin-top: 20px; // Agrega espacio entre el texto y la imagen
     }
+
 }
+.divider {
+    width: 50px; // Ancho de la línea
+    height: 10px; // Altura de la línea
+    background-color: blue; // Color azul
+    margin-top: 0px; // Espaciado superior
+    margin-bottom: 50px; // Espaciado inferior
+    border-radius: 5px; // Esquinas redondeadas opcionales
+}
+.h2{
+    margin-bottom: 0px; // Espaciado inferior
+}
+
+.about-description {
+    text-align: justify; // Alinea el texto a ambos lados
+    margin: 0; // Elimina márgenes
+    padding: 0; // Elimina relleno
+}
+.strong{
+    margin-top: 0px; // Espaciado superior
+}
+
